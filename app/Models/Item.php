@@ -15,13 +15,18 @@ class Item extends Model
     const STATE_BOUGHT = 'bought';
 
     public function secondaryCategory()
-     {
+    {
          return $this->belongsTo('App\Models\SecondaryCategory');
-     }
+    }
 
 
     public function getIsStateSellingAttribute()
-     {
+    {
          return $this->state === self::STATE_SELLING;
-     }
+    }
+
+    public function getIsStateBoughtAttribute()
+    {
+        return $this->state === self::STATE_BOUGHT;
+    }
 }

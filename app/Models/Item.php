@@ -19,10 +19,19 @@ class Item extends Model
          return $this->belongsTo('App\Models\SecondaryCategory');
     }
 
-
     public function getIsStateSellingAttribute()
     {
          return $this->state === self::STATE_SELLING;
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo('App\Models\User','seller_id');
+    }
+
+    public function condition()
+    {
+        return $this->belongsTo('App\Models\ItemCondition','item_condition_id');
     }
 
     public function getIsStateBoughtAttribute()

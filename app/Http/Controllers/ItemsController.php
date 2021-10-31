@@ -15,4 +15,9 @@ class ItemsController extends Controller
 
         return view('items.items')->with('items',$items);
     }
+
+    //詳細画面
+    public function showItemDetail(Item $item){
+        return view('items.item_detail')->with('item',$item);
+    }
 }
